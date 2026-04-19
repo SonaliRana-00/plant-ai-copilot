@@ -1,0 +1,9 @@
+sentence-transformers
+chromadb
+groq
+opcua
+streamlit
+plotly
+cryptography
+torch
+torchvision

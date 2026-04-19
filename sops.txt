@@ -1,0 +1,27 @@
+SOP-001: Cooling Water Low Pressure
+If cooling water supply pressure drops below 3.5 bar,
+immediately check valve XV-89 position and compressor
+C-02 outlet pressure. If pressure remains low after
+5 minutes notify shift supervisor.
+
+SOP-002: High Temperature Response
+If TT-101 temperature exceeds 90 degrees C reduce
+feed rate by 20 percent and increase cooling water
+flow on FT-101. If temperature exceeds 96 degrees C
+initiate emergency shutdown procedure ESP-04.
+
+SOP-003: Low Flow Alarm
+If FT-101 flow drops below 30 m3/hr check control
+valve CV-101 position and upstream supply pressure.
+Inspect strainer for blockage if valve is fully open.
+
+SOP-004: High Pressure Response
+If PT-101 pressure exceeds 8 bar open bypass valve
+BV-101 immediately and notify shift supervisor.
+Do not exceed 9 bar under any circumstances.
+
+SOP-005: Heat Exchanger Fouling
+Rising differential pressure across shell side
+combined with reduced heat transfer indicates fouling.
+Schedule inspection and mechanical cleaning within
+48 hours. Log in SAP PM as preventive maintenance.

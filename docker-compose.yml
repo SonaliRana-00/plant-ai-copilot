@@ -1,0 +1,57 @@
+networks:
+  ot_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+  ops_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24
+
+services:
+
+  plc:
+    build: ./plc
+    container_name: virtual_plc
+    networks:
+      ot_network:
+        ipv4_address: 172.20.0.10
+    ports:
+      - "4840:4840"
+    volumes:
+      - ./certs:/plc/certs
+    restart: unless-stopped
+
+  app:
+    build: .
+    container_name: plant_app
+    networks:
+      - ot_network
+      - ops_network
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./certs:/app/certs
+      - ./app.py:/app/app.py        
+      - ./logger.py:/app/logger.py  
+      - ./sops.txt:/app/sops.txt   
+      - ./users.py:/app/users.py 
+    environment:
+      - PLC_ADDRESS=opc.tcp://172.20.0.10:4840/freeopcua/server/
+    depends_on:
+      - plc
+    restart: unless-stopped
+
+  monitor:
+    build: ./monitor
+    container_name: security_monitor
+    networks:
+      - ops_network
+    ports:
+      - "8502:8502"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

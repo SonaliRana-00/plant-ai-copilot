@@ -1,0 +1,11 @@
+{
+  "name": "RAG + MCP Project",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
+  "forwardPorts": [8501],
+  "extensions": [
+    "ms-python.python",
+    "ms-python.pylance"
+  ]
+}
